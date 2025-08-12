@@ -1,0 +1,12 @@
+{%extends "parent.html"%}
+{%from "field.html" import text%}
+{%block title%}Edit Transaction{%endblock%}
+{%block contents%}
+    <form action="/edit/{{object.id}}" method="post">
+        {{text("from","from UPI",object.from) }}
+        {{text("to","to UPI",object.to) }}
+        {{text("amount","amount",object.amount) }}
+        {{text("date","date",object.date) }}
+        <input type="submit" value="Edit">
+    </form>
+{%endblock%}

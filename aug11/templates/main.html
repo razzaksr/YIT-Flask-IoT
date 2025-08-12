@@ -1,0 +1,27 @@
+{%extends "parent.html"%}
+{%block title%}Dashboard{%endblock%}
+{%block contents%}
+    <h1>Transactions</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Transaction From</th>
+                <th>Transaction To</th>
+                <th>Transaction amount</th>
+                <th>Transaction Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+                <tr>
+                    <td>{{record.from|upper}}</td>
+                    <td>{{record.to|lower}}</td>
+                    <td>{{record.amount|round(1)}}</td>
+                    <td>{{record.date}}</td>
+                    <td><a href="/edit/{{record.id}}">Edit</a></td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+{%endblock%}
