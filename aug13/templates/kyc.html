@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC Form</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <form novalidate method="post">
+        <!-- csrf token expected -->
+        {{account.hidden_tag()}}
+        <div>
+            <p>{{account.fullname.label}}</p>
+            <p>{{account.fullname(size=32)}}</p>
+            <p>
+                {%for error in account.fullname.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{account.passcode.label}}</p>
+            <p>{{account.passcode(size=32)}}</p>
+            <p>
+                {%for error in account.passcode.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{account.email.label}}</p>
+            <p>{{account.email(size=32)}}</p>
+            <p>
+                {%for error in account.email.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{account.aadhaar.label}}</p>
+            <p>{{account.aadhaar(size=32)}}</p>
+            <p>
+                {%for error in account.aadhaar.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{account.pan.label}}</p>
+            <p>{{account.pan(size=32)}}</p>
+            <p>
+                {%for error in account.pan.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{account.type.label}}</p>
+            <p>{{account.type(size=32)}}</p>
+            <p>
+                {%for error in account.type.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{account.branch.label}}</p>
+            <p>{{account.branch()}}</p>
+            <p>
+                {%for error in account.branch.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            <p>{{account.declaration()}}{{account.declaration.label}}</p>
+            <p>
+                {%for error in account.declaration.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </p>
+        </div>
+        <div>
+            {{account.submit()}}
+        </div>
+    </form>
+</body>
+</html>
